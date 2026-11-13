@@ -1,5 +1,5 @@
-import {Phone, MessageCircle, MapPin, Clock} from 'lucide-react';
-import {BUSINESS_INFO, PageId} from '../data/spaData';
+import {Phone, MessageCircle, MapPin, Clock, ExternalLink} from 'lucide-react';
+import {BUSINESS_INFO, IMAGES, PageId} from '../data/spaData';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -10,8 +10,15 @@ export function Footer({onNavigate}: FooterProps) {
     <footer className="border-t border-[#26262C] bg-[#16161A] text-[#A1A1AA]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5 space-y-4">
-          <div className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7]">
-            DENSPOT
+          <div className="flex items-center gap-3.5">
+            <img
+              src={IMAGES.logo}
+              alt="Denspot Men's Wellness Spa official logo"
+              className="h-14 w-14 rounded-sm bg-[#F8F8FA] border border-[#D4AF37]/50 p-1 object-contain shrink-0"
+            />
+            <div className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7]">
+              DENSPOT
+            </div>
           </div>
           <p className="text-sm leading-relaxed text-[#A1A1AA] max-w-md">
             Executive kinyozi, deep-tissue bodywork, and restorative skincare in the
@@ -22,11 +29,27 @@ export function Footer({onNavigate}: FooterProps) {
             {BUSINESS_INFO.rateNote}
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-[#D4AF37]">
-            <span>Instagram: {BUSINESS_INFO.instagram}</span>
+            <a
+              href={BUSINESS_INFO.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-[#E5C65C] hover:underline underline-offset-4 transition-colors"
+            >
+              <span>Instagram: {BUSINESS_INFO.instagram}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
             <span aria-hidden="true" className="text-[#3E3E47]">
               ·
             </span>
-            <span>TikTok: {BUSINESS_INFO.tiktok}</span>
+            <a
+              href={BUSINESS_INFO.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-[#E5C65C] hover:underline underline-offset-4 transition-colors"
+            >
+              <span>TikTok: {BUSINESS_INFO.tiktok}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
 

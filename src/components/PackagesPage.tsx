@@ -214,9 +214,28 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
           })}
         </div>
 
-        <p className="text-xs text-[#A1A1AA] border-t border-[#26262C] pt-6 leading-relaxed">
-          {BUSINESS_INFO.rateNote}
-        </p>
+        <div className="border-t border-[#26262C] pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#A1A1AA] leading-relaxed">
+          <p>{BUSINESS_INFO.rateNote}</p>
+          <div className="flex items-center gap-3 shrink-0 text-[#D4AF37]">
+            <a
+              href={BUSINESS_INFO.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4 whitespace-nowrap"
+            >
+              Instagram {BUSINESS_INFO.instagram}
+            </a>
+            <span aria-hidden="true" className="text-[#52525B]">·</span>
+            <a
+              href={BUSINESS_INFO.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4 whitespace-nowrap"
+            >
+              TikTok {BUSINESS_INFO.tiktok}
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

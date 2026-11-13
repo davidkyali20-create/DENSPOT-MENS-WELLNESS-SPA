@@ -316,6 +316,29 @@ export function GreenspotLocationSection() {
                 Get Directions
               </a>
             </div>
+
+            <div className="flex flex-wrap items-center gap-4 text-xs text-[#A1A1AA]">
+              <span>Follow Room 801 Updates:</span>
+              <a
+                href={BUSINESS_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4AF37] hover:underline underline-offset-4 inline-flex items-center gap-1"
+              >
+                Instagram ({BUSINESS_INFO.instagram})
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <span aria-hidden="true" className="text-[#52525B]">·</span>
+              <a
+                href={BUSINESS_INFO.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4AF37] hover:underline underline-offset-4 inline-flex items-center gap-1"
+              >
+                TikTok ({BUSINESS_INFO.tiktok})
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
 
           {/* Right Column: Interactive Google Map */}

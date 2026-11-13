@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Menu, X} from 'lucide-react';
-import {PageId} from '../data/spaData';
+import {IMAGES, PageId} from '../data/spaData';
 
 interface NavbarProps {
   activePage: PageId;
@@ -27,13 +27,18 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 bg-[#0B0B0D]/92 backdrop-blur-md border-b border-[#26262C]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-8">
-        {/* Zone 1: Single-line brand wordmark */}
+        {/* Zone 1: Single brand crest & wordmark */}
         <button
           type="button"
           onClick={() => handleSelect('home')}
-          className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7] hover:text-[#D4AF37] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
+          className="inline-flex items-center gap-2.5 font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7] hover:text-[#D4AF37] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
         >
-          DENSPOT
+          <img
+            src={IMAGES.logo}
+            alt="Denspot Men's Wellness Spa official crest"
+            className="h-10 w-10 rounded-sm bg-[#F8F8FA] border border-[#D4AF37]/50 p-0.5 object-contain shrink-0"
+          />
+          <span>DENSPOT</span>
         </button>
 
         {/* Zone 2: 5 concise single-line text navigation links */}

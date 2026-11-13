@@ -91,7 +91,10 @@ export const BUSINESS_INFO = {
   phoneDisplay: '+254 704 388 221',
   phoneRaw: '254704388221',
   instagram: '@denspotmenswellness',
+  instagramUrl:
+    'https://www.instagram.com/denspotmenswellness?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==',
   tiktok: '@denspotmens',
+  tiktokUrl: 'https://www.tiktok.com/@denspotmens?is_from_webapp=1&sender_device=pc',
   parking: 'Ample, secure basement and street-level parking available on-site at Greenspot Towers.',
   hoursWeekday: 'Monday – Saturday: 8:30 AM – 9:30 PM',
   hoursSunday: 'Sunday: 10:00 AM – 8:00 PM',
@@ -99,6 +102,7 @@ export const BUSINESS_INFO = {
 };
 
 export const IMAGES = {
+  logo: '/assets/aistudio/image_9eaf590c.png',
   heroLounge: '/src/assets/images/exec_grooming_suite_1794559268397.webp',
   massageSuite: '/src/assets/images/exec_massage_suite_1794559268380.webp',
   kinyoziCraft: '/src/assets/images/exec_barber_station_1794559269661.webp',

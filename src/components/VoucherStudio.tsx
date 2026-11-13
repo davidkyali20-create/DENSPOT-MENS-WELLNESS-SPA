@@ -1,6 +1,6 @@
 import {FormEvent, useMemo, useState} from 'react';
 import {Check, Gift, MessageCircle, Smartphone} from 'lucide-react';
-import {BUSINESS_INFO, SIGNATURE_PACKAGES, formatKes} from '../data/spaData';
+import {BUSINESS_INFO, IMAGES, SIGNATURE_PACKAGES, formatKes} from '../data/spaData';
 
 const PRESET_AMOUNTS = [1500, 3500, 5000, 10000];
 const OCCASIONS = ['Birthday', 'Father’s Day', 'Anniversary', 'Corporate Appreciation'];
@@ -435,13 +435,20 @@ export function VoucherStudio() {
 
           <div className="relative bg-gradient-to-br from-[#1B1A1F] via-[#0B0B0D] to-[#1A1610] border border-[#D4AF37]/60 rounded-sm p-7 shadow-2xl space-y-6">
             <div className="flex items-start justify-between gap-4 border-b border-[#2C2A24] pb-4">
-              <div>
-                <p className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7]">
-                  DENSPOT
-                </p>
-                <p className="text-xs text-[#D4AF37] mt-0.5">
-                  Men’s Wellness Spa · Room 801
-                </p>
+              <div className="flex items-center gap-3">
+                <img
+                  src={IMAGES.logo}
+                  alt="Denspot Men's Wellness Spa official logo"
+                  className="h-12 w-12 rounded-sm bg-[#F8F8FA] border border-[#D4AF37]/60 p-0.5 object-contain shrink-0"
+                />
+                <div>
+                  <p className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7]">
+                    DENSPOT
+                  </p>
+                  <p className="text-xs text-[#D4AF37] mt-0.5">
+                    Men’s Wellness Spa · Room 801
+                  </p>
+                </div>
               </div>
               <span className="text-xs font-medium text-[#E4E4E7]">{occasion}</span>
             </div>
