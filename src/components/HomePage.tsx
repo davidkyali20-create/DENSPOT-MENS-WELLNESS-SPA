@@ -17,7 +17,7 @@ interface HomePageProps {
 }
 
 export function HomePage({onNavigate, onStartBooking}: HomePageProps) {
-  const [quickServiceId, setQuickServiceId] = useState<string>('pkg-executive-reset');
+  const [quickServiceId, setQuickServiceId] = useState<string>('pkg-haircut-grooming');
 
   const handleQuickBook = (e: FormEvent) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ export function HomePage({onNavigate, onStartBooking}: HomePageProps) {
   };
 
   const featuredCombos = SIGNATURE_PACKAGES.filter((p) =>
-    ['pkg-executive-reset', 'pkg-weekend-wind-down', 'pkg-boss-experience'].includes(p.id)
+    ['pkg-haircut-grooming', 'pkg-haircut-dye', 'pkg-massage-free-cut'].includes(p.id)
   );
 
   const quickServicesPreview = SERVICES.filter((s) => s.popular);
@@ -132,9 +132,9 @@ export function HomePage({onNavigate, onStartBooking}: HomePageProps) {
                 </span>
               </div>
               <div className="bg-[#0A0A0B] border border-[#221F1A] px-3.5 py-2.5 rounded-sm">
-                <span className="text-[#8D867B] block">M-Pesa Deposit</span>
+                <span className="text-[#8D867B] block">Packages From</span>
                 <span className="text-[#C8A253] font-semibold tabular-nums">
-                  KES 500 or Lounge
+                  KES 600
                 </span>
               </div>
             </div>
@@ -296,7 +296,7 @@ export function HomePage({onNavigate, onStartBooking}: HomePageProps) {
                 onClick={() => onNavigate('services')}
                 className="inline-flex items-center gap-1.5 pt-2 text-xs font-semibold text-[#C8A253] hover:underline"
               >
-                Browse Full 14-Treatment Menu
+                Browse Full Treatment Menu
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -375,7 +375,7 @@ export function HomePage({onNavigate, onStartBooking}: HomePageProps) {
               Send an Instant Room 801 Digital Gift Voucher
             </h3>
             <p className="text-sm text-[#A6A198]">
-              Choose from KES 2,500, KES 5,000, KES 10,000, or a signature spa combo—delivered
+              Choose from KES 1,500, KES 3,500, KES 5,000, or a signature spa combo—delivered
               via WhatsApp or ready in gold-embossed print.
             </p>
           </div>

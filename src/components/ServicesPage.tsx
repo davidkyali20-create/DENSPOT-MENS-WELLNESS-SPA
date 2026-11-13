@@ -1,12 +1,6 @@
 import {useState} from 'react';
 import {ArrowRight, Clock} from 'lucide-react';
-import {
-  IMAGES,
-  SERVICES,
-  ServiceCategory,
-  SpaService,
-  formatKes,
-} from '../data/spaData';
+import {BUSINESS_INFO, IMAGES, SERVICES, ServiceCategory, SpaService, formatKes} from '../data/spaData';
 import {ResilientImage} from './ResilientImage';
 
 interface ServicesPageProps {
@@ -179,26 +173,32 @@ export function ServicesPage({onBookService, onGoPackages}: ServicesPageProps) {
         ))}
       </div>
 
-      {/* Cross-sell to Combos */}
-      <div className="bg-[#121215] border border-[#2A251C] rounded-sm p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div className="space-y-1">
-          <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#C8A253]">
-            Bundle &amp; Save Up to KES 2,000
-          </p>
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-[#F4F1EA]">
-            Combining Grooming &amp; Massage Today?
-          </h2>
-          <p className="text-sm text-[#A6A198]">
-            Explore our curated 60-minute to 2.5-hour combos and Monthly VIP Memberships.
-          </p>
+      {/* Cross-sell to Combos & Branch Rate Note */}
+      <div className="space-y-6">
+        <div className="bg-[#121215] border border-[#2A251C] rounded-sm p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#C8A253]">
+              Bundles Starting at KES 600
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-[#F4F1EA]">
+              Looking for Haircut + Massage Combos?
+            </h2>
+            <p className="text-sm text-[#A6A198]">
+              Explore our Haircut Grooming Package (KES 600), Massage + Free Haircut Offer (KES 3,500), and VIP Memberships.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onGoPackages}
+            className="px-5 py-3 bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B] text-sm font-semibold rounded-sm transition-colors whitespace-nowrap shrink-0"
+          >
+            View Combos &amp; VIP Club
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={onGoPackages}
-          className="px-5 py-3 bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B] text-sm font-semibold rounded-sm transition-colors whitespace-nowrap shrink-0"
-        >
-          View Combos &amp; VIP Club
-        </button>
+
+        <p className="text-xs text-[#9E978B] leading-relaxed">
+          {BUSINESS_INFO.rateNote}
+        </p>
       </div>
     </div>
   );

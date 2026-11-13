@@ -98,7 +98,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
   const upcomingDays = useMemo(() => buildUpcomingDays(), []);
 
   const [selectedIds, setSelectedIds] = useState<string[]>(() =>
-    initialItemIds.length > 0 ? initialItemIds : ['exec-haircut']
+    initialItemIds.length > 0 ? initialItemIds : ['pkg-haircut-grooming']
   );
   const [specialistId, setSpecialistId] = useState<string>('any');
   const [selectedDateIso, setSelectedDateIso] = useState<string>(upcomingDays[0].iso);
@@ -122,13 +122,14 @@ export function BookingView({initialItemIds}: BookingViewProps) {
   const totals = useMemo(() => {
     const totalKes = selectedItems.reduce((sum, item) => sum + item.priceKes, 0);
     const totalMins = selectedItems.reduce((sum, item) => sum + item.durationMins, 0);
+    const depositAmount = totalKes < 1500 ? Math.min(300, totalKes) : Math.min(BUSINESS_INFO.depositKes, totalKes);
     const dueNowKes =
       paymentMode === 'deposit'
-        ? Math.min(BUSINESS_INFO.depositKes, totalKes)
+        ? depositAmount
         : paymentMode === 'full'
         ? totalKes
         : 0;
-    return {totalKes, totalMins, dueNowKes};
+    return {totalKes, totalMins, depositAmount, dueNowKes};
   }, [selectedItems, paymentMode]);
 
   const toggleItem = (id: string) => {
@@ -635,7 +636,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F4F1EA]">
                   <span>M-Pesa Booking Deposit</span>
                   <span className="text-[#C8A253] tabular-nums">
-                    {formatKes(Math.min(BUSINESS_INFO.depositKes, totals.totalKes))}
+                    {formatKes(totals.depositAmount)}
                   </span>
                 </div>
                 <p className="text-xs text-[#9E978B] mt-0.5">

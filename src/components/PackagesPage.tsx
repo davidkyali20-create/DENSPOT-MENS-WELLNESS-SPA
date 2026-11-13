@@ -207,6 +207,10 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
             );
           })}
         </div>
+
+        <p className="text-xs text-[#9E978B] border-t border-[#221F1A] pt-6 leading-relaxed">
+          {BUSINESS_INFO.rateNote}
+        </p>
       </section>
     </div>
   );

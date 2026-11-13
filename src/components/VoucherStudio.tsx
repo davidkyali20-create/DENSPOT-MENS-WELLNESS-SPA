@@ -2,13 +2,13 @@ import {FormEvent, useMemo, useState} from 'react';
 import {Check, Gift, MessageCircle, Smartphone} from 'lucide-react';
 import {BUSINESS_INFO, SIGNATURE_PACKAGES, formatKes} from '../data/spaData';
 
-const PRESET_AMOUNTS = [2500, 5000, 10000];
+const PRESET_AMOUNTS = [1500, 3500, 5000, 10000];
 const OCCASIONS = ['Birthday', 'Father’s Day', 'Anniversary', 'Corporate Appreciation'];
 
 export function VoucherStudio() {
   const [giftMode, setGiftMode] = useState<'amount' | 'package'>('amount');
-  const [amountKes, setAmountKes] = useState<number>(5000);
-  const [selectedPkgId, setSelectedPkgId] = useState<string>(SIGNATURE_PACKAGES[1].id);
+  const [amountKes, setAmountKes] = useState<number>(3500);
+  const [selectedPkgId, setSelectedPkgId] = useState<string>(SIGNATURE_PACKAGES[2].id);
   const [occasion, setOccasion] = useState<string>('Birthday');
   const [recipientName, setRecipientName] = useState<string>('');
   const [senderName, setSenderName] = useState<string>('');
@@ -178,7 +178,7 @@ export function VoucherStudio() {
                 </div>
 
                 {giftMode === 'amount' ? (
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {PRESET_AMOUNTS.map((amt) => (
                       <button
                         key={amt}

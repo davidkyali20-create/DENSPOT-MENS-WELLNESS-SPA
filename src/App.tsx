@@ -12,7 +12,7 @@ import {WhatsAppWidget} from './components/WhatsAppWidget';
 
 export default function App() {
   const [activePage, setActivePage] = useState<PageId>('home');
-  const [bookingItemIds, setBookingItemIds] = useState<string[]>(['pkg-executive-reset']);
+  const [bookingItemIds, setBookingItemIds] = useState<string[]>(['pkg-haircut-grooming']);
   const [mapsQuotaExceeded, setMapsQuotaExceeded] = useState(false);
 
   useEffect(() => {
