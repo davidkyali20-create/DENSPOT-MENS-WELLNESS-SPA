@@ -25,13 +25,13 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0A0A0B]/92 backdrop-blur-md border-b border-[#24211B]">
+    <header className="sticky top-0 z-40 bg-[#0B0B0D]/92 backdrop-blur-md border-b border-[#26262C]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-8">
         {/* Zone 1: Single-line brand wordmark */}
         <button
           type="button"
           onClick={() => handleSelect('home')}
-          className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F4F1EA] hover:text-[#C8A253] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A253] rounded-sm"
+          className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7] hover:text-[#D4AF37] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
         >
           DENSPOT
         </button>
@@ -48,17 +48,17 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
                 key={item.id}
                 type="button"
                 onClick={() => handleSelect(item.id)}
-                className={`relative py-1 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A253] rounded-sm ${
+                className={`relative py-1 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm ${
                   isActive
-                    ? 'text-[#C8A253]'
-                    : 'text-[#B5AFA3] hover:text-[#F4F1EA]'
+                    ? 'text-[#D4AF37]'
+                    : 'text-[#A1A1AA] hover:text-[#F5F5F7]'
                 }`}
               >
                 {item.label}
                 {isActive && (
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-[#C8A253]"
+                    className="absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-[#D4AF37]"
                   />
                 )}
               </button>
@@ -74,9 +74,9 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
               setMobileOpen(false);
               onOpenBooking();
             }}
-            className="px-4 py-2 text-xs sm:text-sm font-semibold text-[#0A0A0B] bg-[#C8A253] hover:bg-[#D9B76C] transition-colors rounded-sm whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4F1EA]"
+            className="px-4 py-2 text-xs sm:text-sm font-semibold text-[#F5F5F7] bg-[#C8102E] hover:bg-[#DF193A] transition-colors rounded-sm whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
           >
-            Book Session
+            Book Now
           </button>
 
           <button
@@ -84,7 +84,7 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
-            className="md:hidden p-2 text-[#D5CFC4] hover:text-[#F4F1EA] border border-[#2A261F] rounded-sm min-h-[40px] min-w-[40px] flex items-center justify-center"
+            className="md:hidden p-2 text-[#F5F5F7] hover:text-[#D4AF37] border border-[#27272E] rounded-sm min-h-[40px] min-w-[40px] flex items-center justify-center"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -93,7 +93,7 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
 
       {/* Mobile Dropdown Navigation */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-[#24211B] bg-[#0F0F11] px-5 py-4 space-y-1">
+        <div className="md:hidden border-t border-[#26262C] bg-[#16161A] px-5 py-4 space-y-1">
           {NAV_ITEMS.map((item) => {
             const isActive = activePage === item.id;
             return (
@@ -103,8 +103,8 @@ export function Navbar({activePage, onNavigate, onOpenBooking}: NavbarProps) {
                 onClick={() => handleSelect(item.id)}
                 className={`w-full text-left px-3 py-3 text-sm font-medium rounded-sm transition-colors ${
                   isActive
-                    ? 'text-[#C8A253] bg-[#1A1814]'
-                    : 'text-[#D5CFC4] hover:text-[#F4F1EA] hover:bg-[#171619]'
+                    ? 'text-[#D4AF37] bg-[#0B0B0D]'
+                    : 'text-[#F5F5F7] hover:text-[#D4AF37] hover:bg-[#0B0B0D]/60'
                 }`}
               >
                 {item.label}

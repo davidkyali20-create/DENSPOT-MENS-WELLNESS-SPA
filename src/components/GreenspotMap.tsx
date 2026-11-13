@@ -151,9 +151,9 @@ function GreenspotMapInner({
           onClick={() => setInfoOpen(true)}
         >
           <Pin
-            background="#C8A253"
-            borderColor="#F4F1EA"
-            glyphColor="#0A0A0B"
+            background="#D4AF37"
+            borderColor="#F5F5F7"
+            glyphColor="#0B0B0D"
             scale={1.2}
           />
         </AdvancedMarker>
@@ -165,19 +165,19 @@ function GreenspotMapInner({
           maxWidth={270}
           onCloseClick={() => setInfoOpen(false)}
         >
-          <div className="p-1 text-[#121215] space-y-1.5">
-            <p className="font-semibold text-sm text-[#0A0A0B]">
+          <div className="p-1 text-[#16161A] space-y-1.5">
+            <p className="font-semibold text-sm text-[#0B0B0D]">
               Denspot Men’s Wellness Spa
             </p>
-            <p className="text-xs text-[#3D3932]">
+            <p className="text-xs text-[#3F3F46]">
               {placeInfo.displayName} · 8th Floor, Room 801
             </p>
-            <p className="text-xs text-[#595349]">{placeInfo.formattedAddress}</p>
+            <p className="text-xs text-[#52525B]">{placeInfo.formattedAddress}</p>
             <a
               href={placeInfo.googleMapsURI}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-[#8A6721] hover:underline pt-1"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[#C8102E] hover:underline pt-1"
             >
               Open in Google Maps
               <ExternalLink className="w-3 h-3" />
@@ -191,16 +191,16 @@ function GreenspotMapInner({
           <button
             type="button"
             onClick={handleRecenter}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0A0A0B]/90 hover:bg-[#161519] text-[#F4F1EA] border border-[#2C2820] text-xs font-medium rounded-sm backdrop-blur-sm transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0B0B0D]/90 hover:bg-[#16161A] text-[#F5F5F7] border border-[#2C2C34] text-xs font-medium rounded-sm backdrop-blur-sm transition-colors"
           >
-            <Compass className="w-3.5 h-3.5 text-[#C8A253]" />
+            <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
             Center on Room 801
           </button>
         </div>
       )}
 
       {searching && (
-        <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-[#0A0A0B]/85 border border-[#2C2820] text-xs text-[#D5CFC4] rounded-sm">
+        <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-[#0B0B0D]/85 border border-[#2C2C34] text-xs text-[#F5F5F7] rounded-sm">
           Locating Greenspot Towers…
         </div>
       )}
@@ -227,56 +227,56 @@ export function GreenspotLocationSection() {
   return (
     <section
       aria-labelledby="location-heading"
-      className="border-t border-[#201D18] bg-[#0C0C0E] py-16 sm:py-20"
+      className="border-t border-[#26262C] bg-[#0B0B0D] py-16 sm:py-20"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* Left Column: Location Details, Parking & One-Tap Actions */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             <div className="space-y-4">
-              <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+              <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
                 Kamakis · Eastern Bypass
               </p>
               <h2
                 id="location-heading"
-                className="font-display text-3xl sm:text-4xl font-semibold text-[#F4F1EA] text-balance"
+                className="font-display text-3xl sm:text-4xl font-semibold text-[#F5F5F7] text-balance"
               >
                 Visit Us at Greenspot Towers
               </h2>
-              <p className="text-sm sm:text-base text-[#A6A198] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
                 Step away from the Eastern Bypass traffic and take the elevator straight
                 to the 8th floor. Room 801 is designed for quiet arrival, private suites,
                 and unhurried executive care.
               </p>
             </div>
 
-            <div className="space-y-5 border-t border-[#221F1A] pt-6 text-sm">
+            <div className="space-y-5 border-t border-[#26262C] pt-6 text-sm">
               <div className="flex items-start gap-3.5">
-                <MapPin className="w-4 h-4 text-[#C8A253] shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-1" />
                 <div>
-                  <p className="font-semibold text-[#F4F1EA]">
+                  <p className="font-semibold text-[#F5F5F7]">
                     {resolvedPlace?.displayName || BUSINESS_INFO.building} ·{' '}
                     {BUSINESS_INFO.floorSuite}
                   </p>
-                  <p className="text-[#A6A198] mt-0.5">
+                  <p className="text-[#A1A1AA] mt-0.5">
                     {resolvedPlace?.formattedAddress || BUSINESS_INFO.streetArea}
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5">
-                <Car className="w-4 h-4 text-[#C8A253] shrink-0 mt-1" />
+                <Car className="w-4 h-4 text-[#D4AF37] shrink-0 mt-1" />
                 <div>
-                  <p className="font-semibold text-[#F4F1EA]">Secure On-Site Parking</p>
-                  <p className="text-[#A6A198] mt-0.5">{BUSINESS_INFO.parking}</p>
+                  <p className="font-semibold text-[#F5F5F7]">Secure On-Site Parking</p>
+                  <p className="text-[#A1A1AA] mt-0.5">{BUSINESS_INFO.parking}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5">
-                <Clock className="w-4 h-4 text-[#C8A253] shrink-0 mt-1" />
+                <Clock className="w-4 h-4 text-[#D4AF37] shrink-0 mt-1" />
                 <div>
-                  <p className="font-semibold text-[#F4F1EA]">Operating Hours</p>
-                  <p className="text-[#A6A198] mt-0.5 tabular-nums">
+                  <p className="font-semibold text-[#F5F5F7]">Operating Hours</p>
+                  <p className="text-[#A1A1AA] mt-0.5 tabular-nums">
                     {BUSINESS_INFO.hoursWeekday}
                     <br />
                     {BUSINESS_INFO.hoursSunday}
@@ -288,9 +288,9 @@ export function GreenspotLocationSection() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href={`tel:+${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#161518] hover:bg-[#1E1C20] border border-[#2E2A22] hover:border-[#C8A253] text-[#F4F1EA] text-sm font-medium rounded-sm transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#16161A] hover:bg-[#1E1E24] border border-[#2C2C34] hover:border-[#D4AF37] text-[#F5F5F7] text-sm font-medium rounded-sm transition-colors whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 text-[#C8A253]" />
+                <Phone className="w-4 h-4 text-[#D4AF37]" />
                 Call {BUSINESS_INFO.phoneDisplay}
               </a>
 
@@ -310,7 +310,7 @@ export function GreenspotLocationSection() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[#C8A253] hover:text-[#DFBE76] text-sm font-medium underline underline-offset-4 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[#D4AF37] hover:text-[#E5C65C] text-sm font-medium underline underline-offset-4 whitespace-nowrap"
               >
                 <Navigation className="w-4 h-4" />
                 Get Directions
@@ -321,17 +321,17 @@ export function GreenspotLocationSection() {
           {/* Right Column: Interactive Google Map */}
           <div className="lg:col-span-7 flex flex-col">
             <div className="flex items-center justify-between gap-4 mb-3">
-              <p className="text-xs text-[#9E978B]">
+              <p className="text-xs text-[#A1A1AA]">
                 Interactive Map · Greenspot Towers, Kamakis
               </p>
-              <div className="inline-flex items-center p-0.5 bg-[#151417] border border-[#26231D] rounded-sm">
+              <div className="inline-flex items-center p-0.5 bg-[#16161A] border border-[#26262C] rounded-sm">
                 <button
                   type="button"
                   onClick={() => setMapTypeId('roadmap')}
                   className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-sm transition-colors ${
                     mapTypeId === 'roadmap'
-                      ? 'bg-[#C8A253] text-[#0A0A0B]'
-                      : 'text-[#A6A198] hover:text-[#F4F1EA]'
+                      ? 'bg-[#D4AF37] text-[#0B0B0D]'
+                      : 'text-[#A1A1AA] hover:text-[#F5F5F7]'
                   }`}
                 >
                   <Layers className="w-3 h-3" />
@@ -342,8 +342,8 @@ export function GreenspotLocationSection() {
                   onClick={() => setMapTypeId('hybrid')}
                   className={`px-3 py-1 text-xs font-medium rounded-sm transition-colors ${
                     mapTypeId === 'hybrid'
-                      ? 'bg-[#C8A253] text-[#0A0A0B]'
-                      : 'text-[#A6A198] hover:text-[#F4F1EA]'
+                      ? 'bg-[#D4AF37] text-[#0B0B0D]'
+                      : 'text-[#A1A1AA] hover:text-[#F5F5F7]'
                   }`}
                 >
                   Satellite
@@ -351,7 +351,7 @@ export function GreenspotLocationSection() {
               </div>
             </div>
 
-            <div className="relative w-full h-[380px] lg:h-[440px] rounded-sm overflow-hidden border border-[#26231D] bg-[#121215]">
+            <div className="relative w-full h-[380px] lg:h-[440px] rounded-sm overflow-hidden border border-[#26262C] bg-[#16161A]">
               {MAPS_API_KEY && !mapError ? (
                 <APIProvider
                   apiKey={MAPS_API_KEY}
@@ -377,12 +377,12 @@ export function GreenspotLocationSection() {
                   </GoogleMap>
                 </APIProvider>
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#141316] to-[#0B0B0D]">
-                  <MapPin className="w-8 h-8 text-[#C8A253] mb-3" />
-                  <h3 className="font-display text-2xl text-[#F4F1EA]">
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#16161A] to-[#0B0B0D]">
+                  <MapPin className="w-8 h-8 text-[#D4AF37] mb-3" />
+                  <h3 className="font-display text-2xl text-[#F5F5F7]">
                     Greenspot Towers · 8th Floor, Room 801
                   </h3>
-                  <p className="text-sm text-[#A6A198] mt-2 max-w-md">
+                  <p className="text-sm text-[#A1A1AA] mt-2 max-w-md">
                     {mapError ||
                       'Located directly along the Eastern Bypass in Kamakis, Ruiru with secure basement and ground-level parking.'}
                   </p>
@@ -390,7 +390,7 @@ export function GreenspotLocationSection() {
                     href={directionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B] text-sm font-semibold rounded-sm transition-colors"
+                    className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-[#D4AF37] hover:bg-[#E2C04D] text-[#0B0B0D] text-sm font-semibold rounded-sm transition-colors"
                   >
                     Open Greenspot Towers in Google Maps
                     <ExternalLink className="w-4 h-4" />

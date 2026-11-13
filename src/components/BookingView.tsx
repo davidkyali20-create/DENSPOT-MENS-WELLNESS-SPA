@@ -122,7 +122,8 @@ export function BookingView({initialItemIds}: BookingViewProps) {
   const totals = useMemo(() => {
     const totalKes = selectedItems.reduce((sum, item) => sum + item.priceKes, 0);
     const totalMins = selectedItems.reduce((sum, item) => sum + item.durationMins, 0);
-    const depositAmount = totalKes < 1500 ? Math.min(300, totalKes) : Math.min(BUSINESS_INFO.depositKes, totalKes);
+    const depositAmount =
+      totalKes < 1500 ? Math.min(300, totalKes) : Math.min(BUSINESS_INFO.depositKes, totalKes);
     const dueNowKes =
       paymentMode === 'deposit'
         ? depositAmount
@@ -148,7 +149,6 @@ export function BookingView({initialItemIds}: BookingViewProps) {
     SPECIALISTS.find((s) => s.id === specialistId) || SPECIALISTS[0];
 
   const isUnavailableSlot = (slot: string) => {
-    // Realistic peak-hour scarcity for today's earlier slots or busy evening windows
     if (selectedDateIso === upcomingDays[0].iso && slot === '09:00 AM') return true;
     if (selectedDayMeta.isPeak && slot === '06:30 PM' && specialistId === 'kelvin') return true;
     return false;
@@ -237,13 +237,13 @@ export function BookingView({initialItemIds}: BookingViewProps) {
 
     return (
       <section className="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
-        <div className="bg-[#121215] border border-[#352F23] rounded-sm p-6 sm:p-10 space-y-6">
-          <div className="flex items-start justify-between gap-4 border-b border-[#25221B] pb-6">
+        <div className="bg-[#16161A] border border-[#D4AF37]/50 rounded-sm p-6 sm:p-10 space-y-6">
+          <div className="flex items-start justify-between gap-4 border-b border-[#26262C] pb-6">
             <div>
-              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#C8A253]">
+              <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#D4AF37]">
                 Reservation Confirmed
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[#F4F1EA] mt-1">
+              <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[#F5F5F7] mt-1">
                 See You at Room 801
               </h2>
             </div>
@@ -254,22 +254,22 @@ export function BookingView({initialItemIds}: BookingViewProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
             <div className="space-y-1">
-              <p className="text-xs text-[#9E978B]">Booking Reference</p>
-              <p className="font-semibold text-[#C8A253] tabular-nums">{confirmed.reference}</p>
+              <p className="text-xs text-[#A1A1AA]">Booking Reference</p>
+              <p className="font-semibold text-[#D4AF37] tabular-nums">{confirmed.reference}</p>
             </div>
             <div className="space-y-1">
-              <p className="text-xs text-[#9E978B]">Date &amp; Time</p>
-              <p className="font-semibold text-[#F4F1EA] tabular-nums">
+              <p className="text-xs text-[#A1A1AA]">Date &amp; Time</p>
+              <p className="font-semibold text-[#F5F5F7] tabular-nums">
                 {confirmed.dateLabel} · {confirmed.timeSlot}
               </p>
             </div>
             <div className="space-y-1">
-              <p className="text-xs text-[#9E978B]">Specialist</p>
-              <p className="font-semibold text-[#F4F1EA]">{confirmed.specialistName}</p>
+              <p className="text-xs text-[#A1A1AA]">Specialist</p>
+              <p className="font-semibold text-[#F5F5F7]">{confirmed.specialistName}</p>
             </div>
             <div className="space-y-1">
-              <p className="text-xs text-[#9E978B]">Payment Status</p>
-              <p className="font-semibold text-[#F4F1EA] tabular-nums">
+              <p className="text-xs text-[#A1A1AA]">Payment Status</p>
+              <p className="font-semibold text-[#F5F5F7] tabular-nums">
                 {confirmed.paidKes > 0
                   ? `${formatKes(confirmed.paidKes)} Paid via M-Pesa (Balance: ${formatKes(
                       confirmed.totalKes - confirmed.paidKes
@@ -279,9 +279,9 @@ export function BookingView({initialItemIds}: BookingViewProps) {
             </div>
           </div>
 
-          <div className="border-t border-[#25221B] pt-5 space-y-2">
-            <p className="text-xs text-[#9E978B]">Selected Treatments</p>
-            <ul className="space-y-1.5 text-sm text-[#E5E0D5]">
+          <div className="border-t border-[#26262C] pt-5 space-y-2">
+            <p className="text-xs text-[#A1A1AA]">Selected Treatments</p>
+            <ul className="space-y-1.5 text-sm text-[#E4E4E7]">
               {confirmed.items.map((item) => (
                 <li key={item.id} className="flex items-center justify-between tabular-nums">
                   <span>{item.name}</span>
@@ -291,7 +291,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
             </ul>
           </div>
 
-          <div className="bg-[#17161A] border border-[#27241E] p-4 rounded-sm text-xs text-[#B5AFA3] leading-relaxed">
+          <div className="bg-[#0B0B0D] border border-[#26262C] p-4 rounded-sm text-xs text-[#A1A1AA] leading-relaxed">
             Automated {confirmed.reminderChannel === 'whatsapp' ? 'WhatsApp' : 'SMS'} reminder
             scheduled for 2 hours prior to your slot at {confirmed.phone}. Basement parking is
             available on arrival at Greenspot Towers.
@@ -312,15 +312,15 @@ export function BookingView({initialItemIds}: BookingViewProps) {
             <button
               type="button"
               onClick={handleDownloadIcs}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#1A191D] hover:bg-[#242228] border border-[#2F2B23] text-[#F4F1EA] text-sm font-medium rounded-sm transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0B0B0D] hover:bg-[#1E1E24] border border-[#2F2F38] text-[#F5F5F7] text-sm font-medium rounded-sm transition-colors"
             >
-              <Download className="w-4 h-4 text-[#C8A253]" />
+              <Download className="w-4 h-4 text-[#D4AF37]" />
               Add to Calendar (.ics)
             </button>
             <button
               type="button"
               onClick={() => setConfirmed(null)}
-              className="px-4 py-2.5 text-sm font-medium text-[#A6A198] hover:text-[#F4F1EA] underline underline-offset-4"
+              className="px-4 py-2.5 text-sm font-medium text-[#A1A1AA] hover:text-[#F5F5F7] underline underline-offset-4"
             >
               Book Another Session
             </button>
@@ -333,13 +333,13 @@ export function BookingView({initialItemIds}: BookingViewProps) {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
       <div className="max-w-2xl mb-10 space-y-2">
-        <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+        <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
           24/7 Online Scheduling · Room 801
         </p>
-        <h1 className="font-display text-3xl sm:text-5xl font-semibold text-[#F4F1EA] text-balance">
+        <h1 className="font-display text-3xl sm:text-5xl font-semibold text-[#F5F5F7] text-balance">
           Book Your Session
         </h1>
-        <p className="text-sm sm:text-base text-[#A6A198] leading-relaxed">
+        <p className="text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
           Select your grooming or spa treatments, choose your specialist, and lock in your
           Greenspot Towers slot with optional M-Pesa STK Push deposit.
         </p>
@@ -349,18 +349,18 @@ export function BookingView({initialItemIds}: BookingViewProps) {
         {/* Left 7 Cols: Steps 1–3 */}
         <div className="lg:col-span-7 space-y-8">
           {/* Step 1: Services & Packages */}
-          <div className="bg-[#111114] border border-[#25221B] rounded-sm p-5 sm:p-6 space-y-4">
-            <div className="flex items-center justify-between gap-4 border-b border-[#221F1A] pb-3">
-              <h2 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+          <div className="bg-[#16161A] border border-[#26262C] rounded-sm p-5 sm:p-6 space-y-4">
+            <div className="flex items-center justify-between gap-4 border-b border-[#26262C] pb-3">
+              <h2 className="font-display text-2xl font-semibold text-[#F5F5F7]">
                 01. Choose Treatments or Combos
               </h2>
-              <span className="text-xs text-[#C8A253] tabular-nums">
+              <span className="text-xs text-[#D4AF37] tabular-nums">
                 {selectedItems.length} selected
               </span>
             </div>
 
             <div className="space-y-3">
-              <p className="text-xs font-medium text-[#A6A198]">Signature Combos</p>
+              <p className="text-xs font-medium text-[#A1A1AA]">Signature Combos</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {SIGNATURE_PACKAGES.map((pkg) => {
                   const active = selectedIds.includes(pkg.id);
@@ -371,17 +371,17 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                       onClick={() => toggleItem(pkg.id)}
                       className={`text-left p-3.5 rounded-sm border transition-colors ${
                         active
-                          ? 'bg-[#1D1911] border-[#C8A253] text-[#F4F1EA]'
-                          : 'bg-[#161519] border-[#26231D] text-[#C9C3B8] hover:border-[#494134]'
+                          ? 'bg-[#0B0B0D] border-[#D4AF37] text-[#F5F5F7]'
+                          : 'bg-[#0B0B0D]/60 border-[#26262C] text-[#E4E4E7] hover:border-[#D4AF37]/50'
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
                         <span className="text-sm font-semibold">{pkg.name}</span>
-                        <span className="text-xs font-semibold text-[#C8A253] tabular-nums shrink-0">
+                        <span className="text-xs font-semibold text-[#D4AF37] tabular-nums shrink-0">
                           {formatKes(pkg.priceKes)}
                         </span>
                       </div>
-                      <p className="text-xs text-[#9E978B] mt-1 tabular-nums">
+                      <p className="text-xs text-[#A1A1AA] mt-1 tabular-nums">
                         {pkg.durationLabel} · {pkg.savingsLabel}
                       </p>
                     </button>
@@ -389,7 +389,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 })}
               </div>
 
-              <p className="text-xs font-medium text-[#A6A198] pt-3">
+              <p className="text-xs font-medium text-[#A1A1AA] pt-3">
                 Individual Kinyozi, Massage &amp; Skincare
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[300px] overflow-y-auto pr-1">
@@ -402,17 +402,17 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                       onClick={() => toggleItem(svc.id)}
                       className={`text-left p-3 rounded-sm border transition-colors ${
                         active
-                          ? 'bg-[#1D1911] border-[#C8A253] text-[#F4F1EA]'
-                          : 'bg-[#161519] border-[#26231D] text-[#C9C3B8] hover:border-[#494134]'
+                          ? 'bg-[#0B0B0D] border-[#D4AF37] text-[#F5F5F7]'
+                          : 'bg-[#0B0B0D]/60 border-[#26262C] text-[#E4E4E7] hover:border-[#D4AF37]/50'
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
                         <span className="text-xs sm:text-sm font-medium">{svc.name}</span>
-                        <span className="text-xs font-semibold text-[#C8A253] tabular-nums shrink-0">
+                        <span className="text-xs font-semibold text-[#D4AF37] tabular-nums shrink-0">
                           {formatKes(svc.priceKes)}
                         </span>
                       </div>
-                      <p className="text-xs text-[#8D867B] mt-1 tabular-nums">
+                      <p className="text-xs text-[#A1A1AA] mt-1 tabular-nums">
                         {svc.durationLabel} · {svc.category.split(' ')[0]}
                       </p>
                     </button>
@@ -423,8 +423,8 @@ export function BookingView({initialItemIds}: BookingViewProps) {
           </div>
 
           {/* Step 2: Specialist */}
-          <div className="bg-[#111114] border border-[#25221B] rounded-sm p-5 sm:p-6 space-y-4">
-            <h2 className="font-display text-2xl font-semibold text-[#F4F1EA] border-b border-[#221F1A] pb-3">
+          <div className="bg-[#16161A] border border-[#26262C] rounded-sm p-5 sm:p-6 space-y-4">
+            <h2 className="font-display text-2xl font-semibold text-[#F5F5F7] border-b border-[#26262C] pb-3">
               02. Preferred Barber or Therapist
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -437,16 +437,16 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                     onClick={() => setSpecialistId(spec.id)}
                     className={`text-left p-3.5 rounded-sm border transition-colors ${
                       active
-                        ? 'bg-[#1D1911] border-[#C8A253]'
-                        : 'bg-[#161519] border-[#26231D] hover:border-[#494134]'
+                        ? 'bg-[#0B0B0D] border-[#D4AF37]'
+                        : 'bg-[#0B0B0D]/60 border-[#26262C] hover:border-[#D4AF37]/50'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-semibold text-[#F4F1EA]">{spec.name}</span>
-                      <User className="w-3.5 h-3.5 text-[#C8A253] shrink-0" />
+                      <span className="text-sm font-semibold text-[#F5F5F7]">{spec.name}</span>
+                      <User className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                     </div>
-                    <p className="text-xs text-[#C8A253] mt-0.5">{spec.role}</p>
-                    <p className="text-xs text-[#9E978B] mt-1.5 line-clamp-2">{spec.bio}</p>
+                    <p className="text-xs text-[#D4AF37] mt-0.5">{spec.role}</p>
+                    <p className="text-xs text-[#A1A1AA] mt-1.5 line-clamp-2">{spec.bio}</p>
                   </button>
                 );
               })}
@@ -454,15 +454,15 @@ export function BookingView({initialItemIds}: BookingViewProps) {
           </div>
 
           {/* Step 3: Date & Time */}
-          <div className="bg-[#111114] border border-[#25221B] rounded-sm p-5 sm:p-6 space-y-5">
-            <h2 className="font-display text-2xl font-semibold text-[#F4F1EA] border-b border-[#221F1A] pb-3">
+          <div className="bg-[#16161A] border border-[#26262C] rounded-sm p-5 sm:p-6 space-y-5">
+            <h2 className="font-display text-2xl font-semibold text-[#F5F5F7] border-b border-[#26262C] pb-3">
               03. Pick Date &amp; Time Slot
             </h2>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-[#9E978B]">
+              <div className="flex items-center justify-between text-xs text-[#A1A1AA]">
                 <span className="inline-flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-[#C8A253]" />
+                  <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
                   Select Day
                 </span>
                 <span>Fri–Sat slots fill fastest</span>
@@ -477,8 +477,8 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                       onClick={() => setSelectedDateIso(day.iso)}
                       className={`p-2.5 text-center rounded-sm border transition-colors ${
                         active
-                          ? 'bg-[#C8A253] border-[#C8A253] text-[#0A0A0B]'
-                          : 'bg-[#161519] border-[#26231D] text-[#D5CFC4] hover:border-[#494134]'
+                          ? 'bg-[#D4AF37] border-[#D4AF37] text-[#0B0B0D]'
+                          : 'bg-[#0B0B0D]/60 border-[#26262C] text-[#F5F5F7] hover:border-[#D4AF37]/50'
                       }`}
                     >
                       <p className="text-xs font-semibold">{day.dayName}</p>
@@ -490,8 +490,8 @@ export function BookingView({initialItemIds}: BookingViewProps) {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-1.5 text-xs text-[#9E978B]">
-                <Clock className="w-3.5 h-3.5 text-[#C8A253]" />
+              <div className="flex items-center gap-1.5 text-xs text-[#A1A1AA]">
+                <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Available Times (East Africa Time)</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -506,10 +506,10 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                       onClick={() => setSelectedTime(slot)}
                       className={`py-2.5 px-2 text-xs font-medium rounded-sm border tabular-nums transition-colors ${
                         unavailable
-                          ? 'bg-[#121114] border-[#1E1C18] text-[#5B564D] line-through cursor-not-allowed'
+                          ? 'bg-[#0B0B0D]/30 border-[#1F1F26] text-[#52525B] line-through cursor-not-allowed'
                           : active
-                          ? 'bg-[#1D1911] border-[#C8A253] text-[#C8A253] font-semibold'
-                          : 'bg-[#161519] border-[#26231D] text-[#D5CFC4] hover:border-[#494134]'
+                          ? 'bg-[#0B0B0D] border-[#D4AF37] text-[#D4AF37] font-semibold'
+                          : 'bg-[#0B0B0D]/60 border-[#26262C] text-[#F5F5F7] hover:border-[#D4AF37]/50'
                       }`}
                     >
                       {slot}
@@ -522,38 +522,38 @@ export function BookingView({initialItemIds}: BookingViewProps) {
         </div>
 
         {/* Right 5 Cols: Client Details, Summary & M-Pesa STK Push Checkout */}
-        <div className="lg:col-span-5 lg:sticky lg:top-24 bg-[#121215] border border-[#2D281F] rounded-sm p-5 sm:p-6 space-y-5">
-          <div className="border-b border-[#24201A] pb-4">
-            <h2 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+        <div className="lg:col-span-5 lg:sticky lg:top-24 bg-[#16161A] border border-[#2F2F38] rounded-sm p-5 sm:p-6 space-y-5">
+          <div className="border-b border-[#26262C] pb-4">
+            <h2 className="font-display text-2xl font-semibold text-[#F5F5F7]">
               04. Your Details &amp; Checkout
             </h2>
-            <p className="text-xs text-[#9E978B] mt-1 tabular-nums">
+            <p className="text-xs text-[#A1A1AA] mt-1 tabular-nums">
               {selectedDayMeta.dayName}, {selectedDayMeta.dateNum} at {selectedTime} ·{' '}
               {selectedSpecialist.name}
             </p>
           </div>
 
-          <div className="space-y-2 border-b border-[#24201A] pb-4 text-sm">
+          <div className="space-y-2 border-b border-[#26262C] pb-4 text-sm">
             {selectedItems.map((item) => (
               <div key={item.id} className="flex items-center justify-between gap-2 tabular-nums">
-                <span className="text-[#E5E0D5]">
+                <span className="text-[#E4E4E7]">
                   {item.name}{' '}
-                  <span className="text-xs text-[#8D867B]">({item.durationMins}m)</span>
+                  <span className="text-xs text-[#A1A1AA]">({item.durationMins}m)</span>
                 </span>
-                <span className="font-medium text-[#F4F1EA] shrink-0">
+                <span className="font-medium text-[#F5F5F7] shrink-0">
                   {formatKes(item.priceKes)}
                 </span>
               </div>
             ))}
-            <div className="flex items-center justify-between pt-2 text-sm font-semibold text-[#F4F1EA] border-t border-[#1E1B16] tabular-nums">
+            <div className="flex items-center justify-between pt-2 text-sm font-semibold text-[#F5F5F7] border-t border-[#26262C] tabular-nums">
               <span>Total ({totals.totalMins} mins)</span>
-              <span className="text-[#C8A253]">{formatKes(totals.totalKes)}</span>
+              <span className="text-[#D4AF37]">{formatKes(totals.totalKes)}</span>
             </div>
           </div>
 
           <div className="space-y-3.5">
             <div>
-              <label htmlFor="booking-name" className="block text-xs font-medium text-[#D5CFC4] mb-1">
+              <label htmlFor="booking-name" className="block text-xs font-medium text-[#E4E4E7] mb-1">
                 Full Name
               </label>
               <input
@@ -563,16 +563,16 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
                 placeholder="e.g. James Kariuki"
-                className="w-full px-3.5 py-2.5 bg-[#0A0A0B] border border-[#2B2720] focus:border-[#C8A253] focus:outline-none text-sm text-[#F4F1EA] rounded-sm"
+                className="w-full px-3.5 py-2.5 bg-[#0B0B0D] border border-[#2C2C34] focus:border-[#D4AF37] focus:outline-none text-sm text-[#F5F5F7] rounded-sm"
               />
             </div>
 
             <div>
-              <label htmlFor="booking-phone" className="block text-xs font-medium text-[#D5CFC4] mb-1">
+              <label htmlFor="booking-phone" className="block text-xs font-medium text-[#E4E4E7] mb-1">
                 M-Pesa / WhatsApp Number
               </label>
               <div className="relative">
-                <Phone className="w-4 h-4 text-[#8D867B] absolute left-3 top-3" />
+                <Phone className="w-4 h-4 text-[#A1A1AA] absolute left-3 top-3" />
                 <input
                   id="booking-phone"
                   type="tel"
@@ -580,13 +580,13 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+254 712 345 678"
-                  className="w-full pl-9 pr-3.5 py-2.5 bg-[#0A0A0B] border border-[#2B2720] focus:border-[#C8A253] focus:outline-none text-sm text-[#F4F1EA] rounded-sm tabular-nums"
+                  className="w-full pl-9 pr-3.5 py-2.5 bg-[#0B0B0D] border border-[#2C2C34] focus:border-[#D4AF37] focus:outline-none text-sm text-[#F5F5F7] rounded-sm tabular-nums"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="booking-notes" className="block text-xs font-medium text-[#D5CFC4] mb-1">
+              <label htmlFor="booking-notes" className="block text-xs font-medium text-[#E4E4E7] mb-1">
                 Preferences (Optional)
               </label>
               <input
@@ -595,13 +595,13 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="e.g. Firm pressure, skin fade #1, espresso on arrival"
-                className="w-full px-3.5 py-2.5 bg-[#0A0A0B] border border-[#2B2720] focus:border-[#C8A253] focus:outline-none text-sm text-[#F4F1EA] rounded-sm"
+                className="w-full px-3.5 py-2.5 bg-[#0B0B0D] border border-[#2C2C34] focus:border-[#D4AF37] focus:outline-none text-sm text-[#F5F5F7] rounded-sm"
               />
             </div>
 
             <div className="flex items-center justify-between gap-3 pt-1">
-              <span className="text-xs text-[#9E978B]">Automated Reminder:</span>
-              <div className="inline-flex p-0.5 bg-[#0A0A0B] border border-[#26231D] rounded-sm">
+              <span className="text-xs text-[#A1A1AA]">Automated Reminder:</span>
+              <div className="inline-flex p-0.5 bg-[#0B0B0D] border border-[#27272E] rounded-sm">
                 {(['whatsapp', 'sms'] as const).map((channel) => (
                   <button
                     key={channel}
@@ -609,8 +609,8 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                     onClick={() => setReminderChannel(channel)}
                     className={`px-3 py-1 text-xs font-medium rounded-sm capitalize transition-colors ${
                       reminderChannel === channel
-                        ? 'bg-[#C8A253] text-[#0A0A0B]'
-                        : 'text-[#A6A198] hover:text-[#F4F1EA]'
+                        ? 'bg-[#D4AF37] text-[#0B0B0D]'
+                        : 'text-[#A1A1AA] hover:text-[#F5F5F7]'
                     }`}
                   >
                     {channel === 'whatsapp' ? 'WhatsApp' : 'SMS'}
@@ -621,25 +621,25 @@ export function BookingView({initialItemIds}: BookingViewProps) {
           </div>
 
           {/* Payment Options */}
-          <div className="space-y-2 border-t border-[#24201A] pt-4">
-            <p className="text-xs font-medium text-[#D5CFC4]">Payment Preference</p>
+          <div className="space-y-2 border-t border-[#26262C] pt-4">
+            <p className="text-xs font-medium text-[#E4E4E7]">Payment Preference</p>
             <div className="space-y-2">
               <button
                 type="button"
                 onClick={() => setPaymentMode('deposit')}
                 className={`w-full text-left p-3 rounded-sm border transition-colors ${
                   paymentMode === 'deposit'
-                    ? 'bg-[#1D1911] border-[#C8A253]'
-                    : 'bg-[#161519] border-[#26231D]'
+                    ? 'bg-[#0B0B0D] border-[#D4AF37]'
+                    : 'bg-[#0B0B0D]/60 border-[#26262C]'
                 }`}
               >
-                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F4F1EA]">
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F5F5F7]">
                   <span>M-Pesa Booking Deposit</span>
-                  <span className="text-[#C8A253] tabular-nums">
+                  <span className="text-[#D4AF37] tabular-nums">
                     {formatKes(totals.depositAmount)}
                   </span>
                 </div>
-                <p className="text-xs text-[#9E978B] mt-0.5">
+                <p className="text-xs text-[#A1A1AA] mt-0.5">
                   Locks peak Friday &amp; weekend slots; balance paid in Room 801.
                 </p>
               </button>
@@ -649,17 +649,17 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 onClick={() => setPaymentMode('full')}
                 className={`w-full text-left p-3 rounded-sm border transition-colors ${
                   paymentMode === 'full'
-                    ? 'bg-[#1D1911] border-[#C8A253]'
-                    : 'bg-[#161519] border-[#26231D]'
+                    ? 'bg-[#0B0B0D] border-[#D4AF37]'
+                    : 'bg-[#0B0B0D]/60 border-[#26262C]'
                 }`}
               >
-                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F4F1EA]">
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F5F5F7]">
                   <span>Full M-Pesa Express Checkout</span>
-                  <span className="text-[#C8A253] tabular-nums">
+                  <span className="text-[#D4AF37] tabular-nums">
                     {formatKes(totals.totalKes)}
                   </span>
                 </div>
-                <p className="text-xs text-[#9E978B] mt-0.5">
+                <p className="text-xs text-[#A1A1AA] mt-0.5">
                   Walk out refreshed with zero checkout wait.
                 </p>
               </button>
@@ -669,15 +669,15 @@ export function BookingView({initialItemIds}: BookingViewProps) {
                 onClick={() => setPaymentMode('lounge')}
                 className={`w-full text-left p-3 rounded-sm border transition-colors ${
                   paymentMode === 'lounge'
-                    ? 'bg-[#1D1911] border-[#C8A253]'
-                    : 'bg-[#161519] border-[#26231D]'
+                    ? 'bg-[#0B0B0D] border-[#D4AF37]'
+                    : 'bg-[#0B0B0D]/60 border-[#26262C]'
                 }`}
               >
-                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F4F1EA]">
+                <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#F5F5F7]">
                   <span>Pay at Room 801 Lounge</span>
-                  <span className="text-[#A6A198] tabular-nums">KES 0 Now</span>
+                  <span className="text-[#A1A1AA] tabular-nums">KES 0 Now</span>
                 </div>
-                <p className="text-xs text-[#9E978B] mt-0.5">
+                <p className="text-xs text-[#A1A1AA] mt-0.5">
                   Settle via M-Pesa Till or Card after your treatment.
                 </p>
               </button>
@@ -685,7 +685,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
           </div>
 
           {formError && (
-            <p role="alert" className="text-xs text-[#F28B82] bg-[#2B1514] border border-[#5A2926] p-3 rounded-sm">
+            <p role="alert" className="text-xs text-[#FCA5A5] bg-[#2D1218] border border-[#C8102E]/60 p-3 rounded-sm">
               {formError}
             </p>
           )}
@@ -693,7 +693,7 @@ export function BookingView({initialItemIds}: BookingViewProps) {
           {stkStep === 'idle' ? (
             <button
               type="submit"
-              className="w-full py-3 px-5 bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B] text-sm font-semibold rounded-sm transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 px-5 bg-[#C8102E] hover:bg-[#DF193A] text-[#F5F5F7] text-sm font-semibold rounded-sm transition-colors flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-4 h-4" />
               {paymentMode === 'lounge'

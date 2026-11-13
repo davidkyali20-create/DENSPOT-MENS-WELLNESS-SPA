@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --bg-primary: #0B0B0D;
+  --bg-card: #16161A;
+  --accent-gold: #D4AF37;
+  --accent-red: #C8102E;
+  --text-main: #F5F5F7;
+  --text-muted: #A1A1AA;
+}
+
 @theme {
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
@@ -9,8 +18,8 @@
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
-    background-color: #0A0A0B;
-    color: #F4F1EA;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
   }
 
   h1, h2, h3, .font-display {
@@ -25,16 +34,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0B;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2722;
+  background: #27272E;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8A253;
+  background: var(--accent-gold);
 }
 
 @media (prefers-reduced-motion: reduce) {

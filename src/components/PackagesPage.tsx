@@ -19,15 +19,15 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
   return (
     <div className="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-16">
       {/* Intro */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-b border-[#221F1A] pb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-b border-[#26262C] pb-12">
         <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+          <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
             Bundled Experiences &amp; VIP Access
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl font-semibold text-[#F4F1EA] text-balance">
+          <h1 className="font-display text-4xl sm:text-5xl font-semibold text-[#F5F5F7] text-balance">
             Curated Packages &amp; Memberships
           </h1>
-          <p className="text-sm sm:text-base text-[#A6A198] leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-[#A1A1AA] leading-relaxed max-w-2xl">
             Maximize your time at Greenspot Towers by combining precision barbering, facial
             care, and deep-tissue recovery in a single seamless booking—or join our Monthly
             VIP Grooming Club for priority Friday evening access.
@@ -35,7 +35,7 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="w-full h-[220px] lg:h-full rounded-sm overflow-hidden border border-[#26231D]">
+          <div className="w-full h-[220px] lg:h-full rounded-sm overflow-hidden border border-[#26262C]">
             <ResilientImage
               src={IMAGES.massageSuite}
               alt="Private spa suite with hot basalt stones at Denspot Room 801"
@@ -48,10 +48,10 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
       {/* Signature Combos */}
       <section aria-labelledby="combos-heading" className="space-y-8">
         <div className="space-y-1">
-          <h2 id="combos-heading" className="font-display text-3xl sm:text-4xl font-semibold text-[#F4F1EA]">
+          <h2 id="combos-heading" className="font-display text-3xl sm:text-4xl font-semibold text-[#F5F5F7]">
             Signature Grooming &amp; Spa Combos
           </h2>
-          <p className="text-sm text-[#A6A198]">
+          <p className="text-sm text-[#A1A1AA]">
             Transparent all-inclusive KES rates with zero hidden add-ons.
           </p>
         </div>
@@ -60,33 +60,39 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
           {SIGNATURE_PACKAGES.map((pkg) => (
             <div
               key={pkg.id}
-              className={`rounded-sm border p-6 flex flex-col justify-between gap-6 ${
+              className={`bg-[#16161A] rounded-sm border p-6 flex flex-col justify-between gap-6 ${
                 pkg.featured
-                  ? 'bg-[#15130F] border-[#C8A253]/70'
-                  : 'bg-[#111114] border-[#24211B]'
+                  ? 'border-[#D4AF37]/70'
+                  : 'border-[#26262C]'
               }`}
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2 text-xs">
-                  <span className="text-[#C8A253] font-medium">{pkg.savingsLabel}</span>
-                  <span className="text-[#9E978B] tabular-nums">{pkg.durationLabel}</span>
+                  {pkg.featured ? (
+                    <span className="px-2 py-0.5 bg-[#C8102E] text-[#F5F5F7] text-[11px] font-semibold tracking-wide rounded-sm">
+                      {pkg.savingsLabel}
+                    </span>
+                  ) : (
+                    <span className="text-[#D4AF37] font-medium">{pkg.savingsLabel}</span>
+                  )}
+                  <span className="text-[#A1A1AA] tabular-nums">{pkg.durationLabel}</span>
                 </div>
 
                 <div>
-                  <h3 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+                  <h3 className="font-display text-2xl font-semibold text-[#F5F5F7]">
                     {pkg.name}
                   </h3>
-                  <p className="text-2xl font-semibold text-[#C8A253] tabular-nums mt-1">
+                  <p className="text-2xl font-semibold text-[#D4AF37] tabular-nums mt-1">
                     {formatKes(pkg.priceKes)}
                   </p>
                 </div>
 
-                <p className="text-sm text-[#A6A198] leading-relaxed">{pkg.tagline}</p>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed">{pkg.tagline}</p>
 
-                <ul className="space-y-2 border-t border-[#221F1A] pt-4 text-xs sm:text-sm text-[#D5CFC4]">
+                <ul className="space-y-2 border-t border-[#26262C] pt-4 text-xs sm:text-sm text-[#E4E4E7]">
                   {pkg.includes.map((line) => (
                     <li key={line} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-[#C8A253] shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                       <span>{line}</span>
                     </li>
                   ))}
@@ -98,8 +104,8 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
                 onClick={() => onBookPackage(pkg.id)}
                 className={`w-full py-2.5 px-4 text-xs sm:text-sm font-semibold rounded-sm transition-colors inline-flex items-center justify-center gap-2 ${
                   pkg.featured
-                    ? 'bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B]'
-                    : 'bg-[#1A1814] hover:bg-[#C8A253] text-[#F4F1EA] hover:text-[#0A0A0B] border border-[#352F23]'
+                    ? 'bg-[#C8102E] hover:bg-[#DF193A] text-[#F5F5F7]'
+                    : 'bg-[#0B0B0D] hover:bg-[#D4AF37] text-[#F5F5F7] hover:text-[#0B0B0D] border border-[#34343D]'
                 }`}
               >
                 Book {pkg.name}
@@ -113,16 +119,16 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
       {/* Monthly VIP Club */}
       <section
         aria-labelledby="vip-heading"
-        className="border-t border-[#221F1A] pt-14 space-y-8"
+        className="border-t border-[#26262C] pt-14 space-y-8"
       >
         <div className="max-w-2xl space-y-2">
-          <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+          <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
             Ruiru &amp; Eastern Bypass Regulars
           </p>
-          <h2 id="vip-heading" className="font-display text-3xl sm:text-4xl font-semibold text-[#F4F1EA]">
+          <h2 id="vip-heading" className="font-display text-3xl sm:text-4xl font-semibold text-[#F5F5F7]">
             Monthly VIP Grooming Club
           </h2>
-          <p className="text-sm text-[#A6A198] leading-relaxed">
+          <p className="text-sm text-[#A1A1AA] leading-relaxed">
             Built for gentlemen who stay sharp every week. Members enjoy priority Friday
             evening and Saturday booking slots plus guaranteed monthly savings.
           </p>
@@ -134,36 +140,36 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
             return (
               <div
                 key={tier.id}
-                className={`rounded-sm border p-7 flex flex-col justify-between gap-6 ${
+                className={`bg-[#16161A] rounded-sm border p-7 flex flex-col justify-between gap-6 ${
                   tier.featured
-                    ? 'bg-gradient-to-br from-[#191610] to-[#111114] border-[#C8A253]'
-                    : 'bg-[#111114] border-[#26231D]'
+                    ? 'border-[#D4AF37]'
+                    : 'border-[#26262C]'
                 }`}
               >
                 <div className="space-y-4">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-xs text-[#C8A253] font-medium">
+                      <p className="text-xs text-[#D4AF37] font-medium">
                         {tier.featured ? 'All-Access Executive Pass' : 'Essential Monthly Pass'}
                       </p>
-                      <h3 className="font-display text-3xl font-semibold text-[#F4F1EA] mt-1">
+                      <h3 className="font-display text-3xl font-semibold text-[#F5F5F7] mt-1">
                         {tier.name}
                       </h3>
                     </div>
-                    <Shield className="w-5 h-5 text-[#C8A253] shrink-0" />
+                    <Shield className="w-5 h-5 text-[#D4AF37] shrink-0" />
                   </div>
 
-                  <p className="text-2xl sm:text-3xl font-semibold text-[#F4F1EA] tabular-nums">
+                  <p className="text-2xl sm:text-3xl font-semibold text-[#F5F5F7] tabular-nums">
                     {formatKes(tier.monthlyPriceKes)}{' '}
-                    <span className="text-sm font-normal text-[#9E978B]">/ Month</span>
+                    <span className="text-sm font-normal text-[#A1A1AA]">/ Month</span>
                   </p>
 
-                  <p className="text-sm text-[#A6A198]">{tier.subtitle}</p>
+                  <p className="text-sm text-[#A1A1AA]">{tier.subtitle}</p>
 
-                  <ul className="space-y-2.5 border-t border-[#26221B] pt-4 text-sm text-[#E5E0D5]">
+                  <ul className="space-y-2.5 border-t border-[#26262C] pt-4 text-sm text-[#E4E4E7]">
                     {tier.perks.map((perk) => (
                       <li key={perk} className="flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-[#C8A253] shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                         <span>{perk}</span>
                       </li>
                     ))}
@@ -196,8 +202,8 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
                     onClick={() => setSelectedMembership(tier.id)}
                     className={`w-full py-3 px-4 text-sm font-semibold rounded-sm transition-colors ${
                       tier.featured
-                        ? 'bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B]'
-                        : 'bg-[#1A1814] hover:bg-[#26221C] text-[#F4F1EA] border border-[#352F23]'
+                        ? 'bg-[#D4AF37] hover:bg-[#E2C04D] text-[#0B0B0D]'
+                        : 'bg-[#0B0B0D] hover:bg-[#1E1E24] text-[#F5F5F7] border border-[#34343D]'
                     }`}
                   >
                     Enroll in {tier.name}
@@ -208,7 +214,7 @@ export function PackagesPage({onBookPackage}: PackagesPageProps) {
           })}
         </div>
 
-        <p className="text-xs text-[#9E978B] border-t border-[#221F1A] pt-6 leading-relaxed">
+        <p className="text-xs text-[#A1A1AA] border-t border-[#26262C] pt-6 leading-relaxed">
           {BUSINESS_INFO.rateNote}
         </p>
       </section>

@@ -7,20 +7,23 @@ interface FooterProps {
 
 export function Footer({onNavigate}: FooterProps) {
   return (
-    <footer className="border-t border-[#24211B] bg-[#070708] text-[#A6A198]">
+    <footer className="border-t border-[#26262C] bg-[#16161A] text-[#A1A1AA]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5 space-y-4">
-          <div className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F4F1EA]">
+          <div className="font-display text-2xl font-semibold tracking-[0.14em] text-[#F5F5F7]">
             DENSPOT
           </div>
-          <p className="text-sm leading-relaxed text-[#A6A198] max-w-md">
+          <p className="text-sm leading-relaxed text-[#A1A1AA] max-w-md">
             Executive kinyozi, deep-tissue bodywork, and restorative skincare in the
             quiet privacy of Greenspot Towers, 8th Floor, Room 801 along the Eastern
             Bypass in Kamakis, Ruiru.
           </p>
-          <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-[#C8A253]">
+          <p className="text-xs text-[#A1A1AA] leading-relaxed max-w-md">
+            {BUSINESS_INFO.rateNote}
+          </p>
+          <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-[#D4AF37]">
             <span>Instagram: {BUSINESS_INFO.instagram}</span>
-            <span aria-hidden="true" className="text-[#453F35]">
+            <span aria-hidden="true" className="text-[#3E3E47]">
               ·
             </span>
             <span>TikTok: {BUSINESS_INFO.tiktok}</span>
@@ -28,13 +31,13 @@ export function Footer({onNavigate}: FooterProps) {
         </div>
 
         <div className="md:col-span-3 space-y-3">
-          <h3 className="text-sm font-semibold text-[#F4F1EA] font-sans">Explore</h3>
+          <h3 className="text-sm font-semibold text-[#F5F5F7] font-sans">Explore</h3>
           <ul className="space-y-2.5 text-sm">
             <li>
               <button
                 type="button"
                 onClick={() => onNavigate('services')}
-                className="hover:text-[#C8A253] transition-colors"
+                className="hover:text-[#D4AF37] transition-colors"
               >
                 Services &amp; KES Pricing
               </button>
@@ -43,7 +46,7 @@ export function Footer({onNavigate}: FooterProps) {
               <button
                 type="button"
                 onClick={() => onNavigate('packages')}
-                className="hover:text-[#C8A253] transition-colors"
+                className="hover:text-[#D4AF37] transition-colors"
               >
                 Signature Combos &amp; VIP Club
               </button>
@@ -52,7 +55,7 @@ export function Footer({onNavigate}: FooterProps) {
               <button
                 type="button"
                 onClick={() => onNavigate('vouchers')}
-                className="hover:text-[#C8A253] transition-colors"
+                className="hover:text-[#D4AF37] transition-colors"
               >
                 Digital Gift Vouchers
               </button>
@@ -61,7 +64,7 @@ export function Footer({onNavigate}: FooterProps) {
               <button
                 type="button"
                 onClick={() => onNavigate('sanctuary')}
-                className="hover:text-[#C8A253] transition-colors"
+                className="hover:text-[#D4AF37] transition-colors"
               >
                 Room 801 Gallery &amp; Map
               </button>
@@ -70,7 +73,7 @@ export function Footer({onNavigate}: FooterProps) {
               <button
                 type="button"
                 onClick={() => onNavigate('booking')}
-                className="hover:text-[#C8A253] transition-colors"
+                className="hover:text-[#D4AF37] transition-colors"
               >
                 24/7 Online Booking
               </button>
@@ -79,17 +82,17 @@ export function Footer({onNavigate}: FooterProps) {
         </div>
 
         <div className="md:col-span-4 space-y-3 text-sm">
-          <h3 className="text-sm font-semibold text-[#F4F1EA] font-sans">
+          <h3 className="text-sm font-semibold text-[#F5F5F7] font-sans">
             Greenspot Towers · Room 801
           </h3>
           <div className="space-y-2.5">
             <p className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-[#C8A253] shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
               <span>{BUSINESS_INFO.fullAddress}</span>
             </p>
             <p className="flex items-start gap-2.5">
-              <Clock className="w-4 h-4 text-[#C8A253] shrink-0 mt-0.5" />
-              <span>
+              <Clock className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+              <span className="tabular-nums">
                 {BUSINESS_INFO.hoursWeekday}
                 <br />
                 {BUSINESS_INFO.hoursSunday}
@@ -98,9 +101,9 @@ export function Footer({onNavigate}: FooterProps) {
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <a
                 href={`tel:+${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center gap-2 px-3 py-2 border border-[#2C2820] hover:border-[#C8A253] text-[#F4F1EA] text-xs font-medium rounded-sm transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-[#0B0B0D] border border-[#2C2C34] hover:border-[#D4AF37] text-[#F5F5F7] text-xs font-medium rounded-sm transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-[#C8A253]" />
+                <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
                 {BUSINESS_INFO.phoneDisplay}
               </a>
               <a
@@ -119,8 +122,8 @@ export function Footer({onNavigate}: FooterProps) {
         </div>
       </div>
 
-      <div className="border-t border-[#181612] py-5 px-5 sm:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#7B766D]">
+      <div className="border-t border-[#232329] bg-[#0B0B0D] py-5 px-5 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#A1A1AA]">
           <p>© {new Date().getFullYear()} Denspot Men’s Wellness Spa. Kamakis, Ruiru.</p>
           <p>
             Location map powered by Google Maps Platform ·{' '}
@@ -128,7 +131,7 @@ export function Footer({onNavigate}: FooterProps) {
               href="https://maps.google.com/help/terms_maps/?utm_campaign=gmp_mcp_codeassist_v1_aistudio"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-[#A6A198]"
+              className="underline hover:text-[#F5F5F7]"
             >
               Google Maps End-User Terms
             </a>

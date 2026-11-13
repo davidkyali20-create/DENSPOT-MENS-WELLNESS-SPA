@@ -33,16 +33,16 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
     <div>
       <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-14">
         {/* Story Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start border-b border-[#221F1A] pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start border-b border-[#26262C] pb-12">
           <div className="lg:col-span-6 space-y-4">
-            <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+            <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
               About Room 801 · Greenspot Towers
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl font-semibold text-[#F4F1EA] text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl font-semibold text-[#F5F5F7] text-balance">
               A Sanctuary Built Around Men’s Wellness
             </h1>
           </div>
-          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#A6A198] leading-relaxed">
+          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
             <p>
               Located in the fast-growing hub of Kamakis along the Eastern Bypass, Denspot
               Men’s Wellness Spa was created to bridge the gap between a rushed street-side
@@ -58,7 +58,7 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
               <button
                 type="button"
                 onClick={onBookNow}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C8A253] hover:bg-[#D9B76C] text-[#0A0A0B] text-sm font-semibold rounded-sm transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C8102E] hover:bg-[#DF193A] text-[#F5F5F7] text-sm font-semibold rounded-sm transition-colors"
               >
                 Reserve Your Suite
                 <ArrowRight className="w-4 h-4" />
@@ -74,15 +74,15 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
             return (
               <div
                 key={item.title}
-                className="border-t border-[#28241D] pt-5 space-y-2.5"
+                className="border-t border-[#26262C] pt-5 space-y-2.5"
               >
                 <div className="flex items-center gap-2.5">
-                  <Icon className="w-4 h-4 text-[#C8A253] shrink-0" />
-                  <h2 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+                  <Icon className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <h2 className="font-display text-2xl font-semibold text-[#F5F5F7]">
                     {item.title}
                   </h2>
                 </div>
-                <p className="text-sm text-[#A6A198] leading-relaxed">{item.copy}</p>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed">{item.copy}</p>
               </div>
             );
           })}
@@ -92,42 +92,35 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
-              <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#C8A253]">
+              <p className="text-xs font-medium tracking-[0.18em] uppercase text-[#D4AF37]">
                 Inside Room 801
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[#F4F1EA] mt-1">
+              <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[#F5F5F7] mt-1">
                 Sanctuary Gallery &amp; Tour
               </h2>
             </div>
-            <p className="text-xs text-[#9E978B]">
+            <p className="text-xs text-[#A1A1AA]">
               Click any space to inspect in full detail
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
             {GALLERY_ITEMS.map((item, idx) => {
-              const colSpan =
-                idx === 0 || idx === 4 ? 'md:col-span-6 lg:col-span-7' : 'md:col-span-6 lg:col-span-5';
               const spanFix =
                 idx === 0
                   ? 'md:col-span-12 lg:col-span-7'
                   : idx === 1
                   ? 'md:col-span-6 lg:col-span-5'
-                  : idx === 2
-                  ? 'md:col-span-6 lg:col-span-4'
-                  : idx === 3
-                  ? 'md:col-span-6 lg:col-span-4'
                   : 'md:col-span-6 lg:col-span-4';
 
-              void colSpan;
               return (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => setLightboxItem(item)}
-                  className={`${spanFix} group text-left bg-[#111114] border border-[#24211B] hover:border-[#C8A253]/60 rounded-sm overflow-hidden transition-colors flex flex-col`}
+                  className={`${spanFix} group text-left bg-[#16161A] border border-[#26262C] hover:border-[#D4AF37]/70 rounded-sm overflow-hidden transition-colors flex flex-col`}
                 >
-                  <div className="w-full h-[260px] sm:h-[290px] overflow-hidden bg-[#0E0E10]">
+                  <div className="w-full h-[260px] sm:h-[290px] overflow-hidden bg-[#0B0B0D]">
                     <ResilientImage
                       src={item.imageSrc}
                       alt={item.title}
@@ -136,11 +129,11 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
                     />
                   </div>
                   <div className="p-5 space-y-1.5 flex-1">
-                    <p className="text-xs text-[#C8A253]">{item.subtitle}</p>
-                    <h3 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+                    <p className="text-xs text-[#D4AF37]">{item.subtitle}</p>
+                    <h3 className="font-display text-2xl font-semibold text-[#F5F5F7]">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#A6A198] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed">
                       {item.caption}
                     </p>
                   </div>
@@ -165,12 +158,12 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="max-w-4xl w-full bg-[#111114] border border-[#2D281F] rounded-sm overflow-hidden"
+            className="max-w-4xl w-full bg-[#16161A] border border-[#2F2F38] rounded-sm overflow-hidden"
           >
-            <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#24211B]">
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#26262C]">
               <div>
-                <p className="text-xs text-[#C8A253]">{lightboxItem.subtitle}</p>
-                <h3 className="font-display text-2xl font-semibold text-[#F4F1EA]">
+                <p className="text-xs text-[#D4AF37]">{lightboxItem.subtitle}</p>
+                <h3 className="font-display text-2xl font-semibold text-[#F5F5F7]">
                   {lightboxItem.title}
                 </h3>
               </div>
@@ -178,12 +171,12 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
                 type="button"
                 onClick={() => setLightboxItem(null)}
                 aria-label="Close gallery preview"
-                className="p-2 text-[#A6A198] hover:text-[#F4F1EA] rounded-sm"
+                className="p-2 text-[#A1A1AA] hover:text-[#F5F5F7] rounded-sm"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="max-h-[70vh] overflow-hidden bg-[#0A0A0B]">
+            <div className="max-h-[70vh] overflow-hidden bg-[#0B0B0D]">
               <ResilientImage
                 src={lightboxItem.imageSrc}
                 alt={lightboxItem.title}
@@ -191,7 +184,7 @@ export function SanctuaryPage({onBookNow}: SanctuaryPageProps) {
                 className="w-full h-full max-h-[62vh] object-cover"
               />
             </div>
-            <div className="px-5 py-4 text-sm text-[#B5AFA3]">
+            <div className="px-5 py-4 text-sm text-[#A1A1AA]">
               {lightboxItem.caption}
             </div>
           </div>
