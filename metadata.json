@@ -1,0 +1,8 @@
+{
+  "name": "Denspot Men's Wellness Spa",
+  "description": "Executive kinyozi, deep-tissue massage, and private men's grooming sanctuary at Greenspot Towers, 8th Floor, Room 801, Eastern Bypass, Kamakis, Ruiru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
